@@ -7,7 +7,6 @@ import {
     CardTitle
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { create } from 'zustand'
 
 
 export function Products({products}: {products: Prod[]}) {

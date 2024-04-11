@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import { useState } from "react";
+import { FaShoppingCart } from "react-icons/fa";
 
 
 export default function Cart() {
@@ -28,7 +29,11 @@ export default function Cart() {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="ghost">Cart ({itemCount})</Button>
+                <Button variant="default">
+                    <div className="">
+                        <FaShoppingCart/>
+                    </div>
+                </Button>
             </SheetTrigger>
             <SheetContent>
                 <SheetHeader>

@@ -1,5 +1,6 @@
 import {Header} from "@/components/Header";
 import Footer from "@/components/footer";
+import Image from "next/image";
 
 export default function Page() {
     return (
@@ -16,8 +17,7 @@ export default function Page() {
             <div className="container mx-auto flex justify-center pt-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     <div className="container mx-auto flex justify-center px-4">
-                        <img src="../img/logo/byteboost-logo.png" alt="TengoTEC" className="object-cover rounded-lg"
-                             />
+                        <Image width="1000" height="10" src="/byteboost-logo.png" alt="TengoTEC" className="object-cover rounded-lg" />
                     </div>
                     <div className="px-2">
                         <div className="container mx-auto flex justify-center p-2 py-5 pt-2">
@@ -32,8 +32,7 @@ export default function Page() {
                                 Somos una empresa nacional especializada en la comercialización de productos y equipos
                                 tecnológicos.
                                 Fundada en el año <span className="text-purple-500 font-bold">2024</span> por cinco
-                                alumnos de
-                                DuocUC, nuestra historia está marcada por un notable
+                                alumnos, nuestra historia está marcada por un notable
                                 crecimiento. En la actualidad, gestionamos un amplio catálogo que abarca más de <span
                                 className="text-purple-500 font-bold">5,000 productos</span>,
                                 consolidándonos como un referente en el sector tecnológico.</p>
@@ -73,16 +72,16 @@ export default function Page() {
                 </div>
             </div>
 
-            <div className="bg-white">
+            <div className="">
                 <div className="container mx-auto flex justify-center">
-                    <dl className="grid grid-cols-1 gap-x-8 gap-y-4 text-center lg:grid-cols-3 py-4">
+                    <dl className="grid grid-cols-1 gap-x-8 gap-y-4 text-center lg:grid-cols-3 py-4 dark:text-white">
                         <div
                             className="mx-auto flex max-w-xs flex-col gap-y-4 hover:text-purple-500 hover:ease-out duration-200">
                             <dt className="text-base leading-3">Personas prefieren
                                 nuestro servicio
                             </dt>
                             <dd
-                                className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl hover:text-purple-500 hover:ease-out duration-200">
+                                className="order-first text-3xl font-semibold tracking-tight dark:text-white text-gray-900 sm:text-5xl hover:text-purple-500 hover:ease-out duration-200">
                                 +50.000
                             </dd>
                         </div>
@@ -90,7 +89,7 @@ export default function Page() {
                             className="mx-auto flex max-w-xs flex-col gap-y-4 hover:text-purple-500 hover:ease-out duration-200">
                             <dt className="text-base leading-3">Ventas en total</dt>
                             <dd
-                                className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl hover:text-purple-500 hover:ease-out duration-200">
+                                className="order-first text-3xl font-semibold tracking-tight dark:text-white text-gray-900 sm:text-5xl hover:text-purple-500 hover:ease-out duration-200">
                                 +110.000
                             </dd>
                         </div>
@@ -99,7 +98,7 @@ export default function Page() {
                             <dt className="text-base leading-3">Personas todos los días
                             </dt>
                             <dd
-                                className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl hover:text-purple-500 hover:ease-out duration-200">
+                                className="order-first text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl hover:text-purple-500 hover:ease-out duration-200">
                                 +2.000
                             </dd>
                         </div>
@@ -117,7 +116,7 @@ export default function Page() {
             <div className="container mx-auto lg:flex justify-center text-center md:grid md:grid-cols-2 py-6 gap-10">
                 <div className="pt-4">
                     <div className="flex justify-center items-center">
-                        <img className="h-20" src="../img/aboutus/quality.png" alt="Tienda"/>
+                        <img className="h-20" src="/quality.png" alt="Tienda"/>
                     </div>
                     <div className="p-3">
                         <div className="text-2x1 font-semibold hover:text-purple-500 hover:ease-out duration-200">
@@ -130,7 +129,7 @@ export default function Page() {
                 </div>
                 <div className="pt-4">
                     <div className="flex justify-center items-center">
-                        <img className="h-20" src="../img/aboutus/comfort.png" alt="Tienda"/>
+                        <img className="h-20" src="/comfort.png" alt="Tienda"/>
                     </div>
                     <div className="p-3">
                         <div className="text-2x1 font-semibold hover:text-purple-500 hover:ease-out duration-200">
@@ -143,7 +142,7 @@ export default function Page() {
                 </div>
                 <div className="pt-4">
                     <div className="flex justify-center items-center">
-                        <img className="h-20" src="../img/aboutus/service.png" alt="Tienda"/>
+                        <img className="h-20" src="/service.png" alt="Tienda"/>
                     </div>
                     <div className="p-3">
                         <div className="text-2x1 font-semibold hover:text-purple-500 hover:ease-out duration-200">
@@ -156,7 +155,7 @@ export default function Page() {
                 </div>
             </div>
 
-            <div className="container mx-auto flex justify-center p-2 py-5">
+            <div id="brands" className="container mx-auto flex justify-center p-2 py-5">
                 <div className="text-lg font-semibold">
                     Marcas Internacionales
                     <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-sm"></div>

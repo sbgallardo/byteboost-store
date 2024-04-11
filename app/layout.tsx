@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { ThemeProvider } from "@/components/theme-provider"
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,6 @@ export default function RootLayout({
             <body className={inter.className}>
                 <ThemeProvider
                     attribute="class"
-                    defaultTheme="system"
                     enableSystem
                     disableTransitionOnChange
                 >

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {ModeToggle} from "@/components/toggle-theme";
 
 export default function Footer() {
 
@@ -59,20 +60,10 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Redes
-                                sociales</h2>
+
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
-                                    <a href="#" className="hover:underline">Instagram</a>
-                                </li>
-                                <li className="mb-4">
-                                    <a href="#" className="hover:underline">Facebook</a>
-                                </li>
-                                <li className="mb-4">
-                                    <a href="#" className="hover:underline">Twitter</a>
-                                </li>
-                                <li className="mb-4">
-                                    <a href="#" className="hover:underline">Discord</a>
+                                    <ModeToggle />
                                 </li>
                             </ul>
                         </div>

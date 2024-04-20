@@ -1,5 +1,5 @@
 "use client"
-import { Prod } from "@/lib/schema"
+import { Prod } from "@/lib/types"
 import {
     Card,
     CardContent,

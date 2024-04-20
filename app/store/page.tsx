@@ -1,35 +1,18 @@
-import {Header} from "@/components/Header";
-import Footer from "@/components/footer";
-import {Products} from "@/components/Products";
-import { Prod } from "@/lib/schema"
-
-export default function Page() {
 
 
+export const metadata = {
+    title: 'Store',
+    description: 'Search for products in the store.'
+};
 
-    const products: Prod[] = [
-        {
-            id: 1,
-            name: "test",
-            price: 1000
-        },
-        {
-            id: 2,
-            name: "Hello",
-            price: 2000
-        }
-    ]
+export default async function Page({searchParams}:{searchParams?: { [key: string]: string | string[] | undefined }; }) {
+
+    const { sort, q: searchValue } = searchParams as { [key: string]: string };
+
 
     return (
-        <main>
-            <Header/>
-
-            <p>store</p>
-            <div className="p-20">
-                <Products products={products} />
-            </div>
-
-            <Footer/>
-        </main>
+        <>
+            <span>store {sort} {searchValue}</span>
+        </>
     )
 }

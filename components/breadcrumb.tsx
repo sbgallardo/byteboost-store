@@ -6,7 +6,7 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import { BreadcrumbType } from "@/lib/schema"
+import { BreadcrumbType } from "@/lib/types"
 
 export function CustomBreadcrumb({paths}: {paths: BreadcrumbType[]}) {
     return (

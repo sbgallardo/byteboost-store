@@ -41,7 +41,7 @@ import Cart from "@/components/cart";
 
 import { IoLogOut } from "react-icons/io5";
 import { IoLogIn } from "react-icons/io5";
-import {useRouter} from "next/router";
+import { FaUser } from "react-icons/fa";
 import {FormEvent, useState} from "react";
 
 const Loading = () => {
@@ -92,7 +92,12 @@ export const AvatarMenu = () => {
                 </div>
             ) : isLoading ? null : (
                 <Link href="/api/auth/login">
-                    <Button variant="ghost">login</Button>
+                    <Button variant="ghost">
+                        <div className="flex gap-2 items-center">
+                            <FaUser />
+                            <span>Iniciar Sesión</span>
+                        </div>
+                    </Button>
                 </Link>
             )}
             {error && (<div>error</div>)}
@@ -116,7 +121,7 @@ export const MenuDrawer = () => {
             </DrawerTrigger>
             <DrawerContent>
                 <DrawerHeader>
-                    <DrawerTitle>
+                    <DrawerTitle className="w-full">
                         <SearchProduct />
                     </DrawerTitle>
                     <DrawerDescription asChild>
@@ -139,10 +144,9 @@ export const MenuDrawer = () => {
 
 export const SearchProduct = () => {
     const [inputContent, setInputContent] = useState('');
-    // const router = useRouter();
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault(); // Prevent default form submission behavior
+        e.preventDefault();
         window.location.href = `/store?q=${inputContent}`;
     };
 
@@ -160,6 +164,8 @@ export const SearchProduct = () => {
                 <input
                     type="text"
                     placeholder="Search"
+                    minLength={2}
+                    spellCheck="false"
                     className="w-full px-2 py-2 text-gray-500 bg-transparent rounded-md outline-none"
                     onChange={(e) => {setInputContent(e.target.value)}}
                 />

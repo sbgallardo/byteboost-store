@@ -1,16 +1,12 @@
-import {Header} from "@/components/Header";
-import Footer from "@/components/footer";
+import { Categories } from "@/components/sections";
+
 
 export default function Page() {
-
-
     return (
-        <main>
-            <Header/>
-
-
-
-            <Footer/>
-        </main>
+        <>
+            <div className="pt-3">
+                <Categories />
+            </div>
+        </>
     )
 }

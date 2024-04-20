@@ -29,7 +29,7 @@ export default function Cart() {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="default">
+                <Button variant="outline">
                     <div className="">
                         <FaShoppingCart/>
                     </div>

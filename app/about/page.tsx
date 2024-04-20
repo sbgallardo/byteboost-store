@@ -1,12 +1,8 @@
-import {Header} from "@/components/Header";
-import Footer from "@/components/footer";
 import Image from "next/image";
 
 export default function Page() {
     return (
-        <main>
-            <Header/>
-
+        <>
             <div className="container mx-auto flex justify-center p-2 py-5">
                 <div className="text-lg font-semibold">
                     ¿Quiénes Somos?
@@ -165,9 +161,6 @@ export default function Page() {
             <div className="container mx-auto flex justify-center p-3">
                 <img src="https://www.spdigital.cl/static/brands-33e52a50bdb527c008d85552cac19230.svg" alt=""/>
             </div>
-
-
-            <Footer/>
-        </main>
+            </>
     )
 }

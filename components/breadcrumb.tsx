@@ -1,12 +1,12 @@
 import {
     Breadcrumb,
     BreadcrumbItem,
-    BreadcrumbLink,
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { BreadcrumbType } from "@/lib/types"
+import Link from "next/link"
 
 export function CustomBreadcrumb({paths}: {paths: BreadcrumbType[]}) {
     return (
@@ -17,7 +17,7 @@ export function CustomBreadcrumb({paths}: {paths: BreadcrumbType[]}) {
                         <>
                             <BreadcrumbItem key={index}>
                                 {item.path ? (
-                                    <BreadcrumbLink href={item.path}>{item.name}</BreadcrumbLink>
+                                    <Link className="transition-colors hover:text-foreground" href={item.path}>{item.name}</Link>
                                 ) : (
                                     <BreadcrumbPage>{item.name}</BreadcrumbPage>
                                 )}

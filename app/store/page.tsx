@@ -1,18 +1,27 @@
+"use client"
 
+import { ProductList } from "@/app/store/product-list";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
-export const metadata = {
-    title: 'Store',
-    description: 'Search for products in the store.'
-};
+const queryClient = new QueryClient();
 
-export default async function Page({searchParams}:{searchParams?: { [key: string]: string | string[] | undefined }; }) {
+export default function Page({searchParams}:{searchParams?: { [key: string]: string | string[] | undefined }; }) {
 
-    const { sort, q: searchValue } = searchParams as { [key: string]: string };
+    const { sort, q: searchValue, category: category, brand: brand } = searchParams as { [key: string]: string };
 
 
     return (
         <>
-            <span>store {sort} {searchValue}</span>
+            <ul>
+                <li>{searchValue}</li>
+                <li>{category}</li>
+                <li>{brand}</li>
+                <li>{sort}</li>
+            </ul>
+            <QueryClientProvider client={queryClient}>
+                <ProductList />
+            </QueryClientProvider>
         </>
     )
 }
+

@@ -20,7 +20,6 @@ export async function Categories() {
                             <Card className="hover:dark:bg-slate-900 hover:bg-slate-100">
                                 <CardHeader>
                                     <CardTitle>{item.name}</CardTitle>
-                                    <CardDescription>{item.description}</CardDescription>
                                 </CardHeader>
                             </Card>
                         </Link>

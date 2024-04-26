@@ -6,7 +6,7 @@ import {
     SearchProduct
 } from "@/components/header-components";
 
-export const Header = () => {
+export function Header() {
     return (
         <header className="text-base lg:text-sm">
             <div className="items-center gap-x-14 px-4 max-w-screen-xl mx-auto lg:flex lg:px-8 lg:static">
@@ -30,7 +30,7 @@ export const Header = () => {
             </div>
             <nav className="border-b">
                 <ul className="flex items-center gap-x-3 max-w-screen-xl mx-auto px-4 overflow-x-auto lg:px-8 dark:text-white">
-                    <li className="py-1 border-b-2 border-indigo-600">
+                    <li className={`py-1`}>
                         <Link href="/"
                               className="block py-2 px-3 rounded-lg text-gray-700 dark:text-white hover:text-gray-900 hover:dark:text-black hover:bg-gray-100 duration-150">
                             Inicio

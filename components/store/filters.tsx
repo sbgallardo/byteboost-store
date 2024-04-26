@@ -1,6 +1,7 @@
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Category } from "@/lib/types";
 import Link from 'next/link'
+import { FilterItemDropdown } from './client-side'
 
 function FilterItemList({ list }: { list: Category[] | [] }) {
     return (
@@ -15,9 +16,9 @@ function FilterItemList({ list }: { list: Category[] | [] }) {
 function FilterItem({item}: {item:Category}) {
     return (
         <>
-            <Link href={`?category=${item.name}`}>
+            <Link href={`?category=${item.name}`} className="hover:underline">
                 <span>
-                {item.name}
+                    {item.name}
                 </span>
             </Link>
             <br/>
@@ -49,10 +50,4 @@ export default function FilterList({ list, title }: { list: Category[] | []; tit
     );
 }
 
-function FilterItemDropdown({list}: {list: Category[] | []}) {
-    return (
-        <>
 
-        </>
-    )
-}

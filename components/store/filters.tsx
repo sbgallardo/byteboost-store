@@ -16,7 +16,7 @@ function FilterItemList({ list }: { list: Category[] | [] }) {
 function FilterItem({item}: {item:Category}) {
     return (
         <>
-            <Link href={`?category=${item.name}`} className="hover:underline">
+            <Link href={`?category=${item.slug}`} className="hover:underline">
                 <span>
                     {item.name}
                 </span>

@@ -1,22 +1,28 @@
 export type Prod = {
-    id: number
-    name: string
-    price: number
+    id: number | null;
+    name: string;
+    slug: string;
+    price: number;
+    discount: number | null;
+    images: string | string[] | null;
+    stock: number;
+    categoryId: number;
+    brandId: number;
 }
 
 export type Category = {
-    id: number
-    name: string
-    description: string | null
-    image: string | null
+    id: number;
+    name: string;
+    slug: string;
 }
 
 export type Brand = {
-    id: number
-    name: string
+    id: number;
+    name: string;
+    slug: string;
 }
 
 export type BreadcrumbType = {
-    name: string
-    path: string | null
+    name: string;
+    path: string | null;
 }

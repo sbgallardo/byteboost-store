@@ -4,6 +4,7 @@ export type Prod = {
     slug: string;
     price: number;
     discount: number | null;
+    description: string;
     images: string | string[] | null;
     stock: number;
     categoryId: number;
@@ -25,4 +26,11 @@ export type Brand = {
 export type BreadcrumbType = {
     name: string;
     path: string | null;
+}
+
+export type SearchParams = {
+    q: string | null;
+    category: string | null;
+    brand: string | null;
+    sort: string | null;
 }

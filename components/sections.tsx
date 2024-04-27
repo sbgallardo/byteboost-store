@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/card'
 import { useQuery } from "@tanstack/react-query";
 import {Brand, Category} from "@/lib/types";
-
+import { SkeletonCards } from "@/components/skeleton";
 
 const getCategories = async () => {
     const res = await fetch('https://byteboost-api.sebas.lat/categories');
@@ -26,7 +26,7 @@ export function Categories() {
 
     const categories = data as Category[];
 
-    if (status === 'pending') return <div>Loading...</div>
+    if (status === 'pending') return <SkeletonCards />
     if (status === 'error') return <div>error</div>
 
     console.log(categories)
@@ -55,7 +55,7 @@ export function Brands() {
 
     const brands = data as Brand[];
 
-    if (status === 'pending') return <div>Loading...</div>
+    if (status === 'pending') return <SkeletonCards />
     if (status === 'error') return <div>error</div>
 
     return (

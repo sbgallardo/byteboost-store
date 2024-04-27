@@ -1,5 +1,5 @@
 "use client"
-import { Category } from "@/lib/types";
+import { Category, Brand } from "@/lib/types";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {Suspense} from "react";
@@ -10,18 +10,14 @@ import {
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
-    DropdownMenuShortcut,
-    DropdownMenuSub,
-    DropdownMenuSubContent,
-    DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link";
 
 
-export function FilterItemDropdown({list}: {list: Category[] | []}) {
+export function FilterItemDropdown({list, title, slug}: {list: Category[] | Brand[] | [], title: string, slug: string}) {
 
-    const [currentFilter, setCurrentFilter] = React.useState("Categorias")
+    const [currentFilter, setCurrentFilter] = React.useState(title)
 
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
         const clickedDiv = e.currentTarget;
@@ -45,7 +41,7 @@ export function FilterItemDropdown({list}: {list: Category[] | []}) {
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup className="w-[300px]">
                         {list.map((item) => (
-                            <Link href={`?category=${item.name}`} key={item.id}>
+                            <Link href={`?${slug}=${item.slug}`} key={item.id}>
                                 <DropdownMenuItem
                                     data-key={item.name}
                                     onClick={(e) => {handleClick(e)}}

@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import Footer from "@/components/footer";
-import Collections from "@/components/store/collections";
+import {Collections, FilterByBrands} from "@/components/store/collections";
 import React from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -14,8 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
                 <div className="order-last min-h-screen w-full md:order-none">{children}</div>
                 <div className="order-none flex-none md:order-last md:w-[125px]">
-                    <div>filters</div>
-                    {/*<FilterList list={sorting} title="Sort by"/>*/}
+                    <FilterByBrands />
                 </div>
             </div>
             <Footer/>

@@ -21,10 +21,8 @@ import { FaShoppingCart } from "react-icons/fa";
 
 export default function Cart() {
 
-
-
-
     const [itemCount, setItemCount] = useState(0);
+
 
     return (
         <Sheet>
@@ -50,9 +48,23 @@ export default function Cart() {
 
                     </div>
                 )}
-
-
             </SheetContent>
         </Sheet>
+    )
+}
+
+export function AddToCart({id}: {id: number}) {
+    const addToCart = () => {
+        console.log(id)
+    }
+
+    return (
+        <>
+            <Button
+                onClick={() => {addToCart()}}
+            >
+                <span>Add to cart +</span>
+            </Button>
+        </>
     )
 }

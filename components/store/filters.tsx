@@ -3,20 +3,20 @@ import { Category } from "@/lib/types";
 import Link from 'next/link'
 import { FilterItemDropdown } from './client-side'
 
-function FilterItemList({ list }: { list: Category[] | [] }) {
+function FilterItemList({ list, slug }: { list: Category[] | [], slug: string }) {
     return (
         <>
             {list.map((item: Category, i) => (
-                <FilterItem key={i} item={item} />
+                <FilterItem key={i} item={item} slug={slug} />
             ))}
         </>
     );
 }
 
-function FilterItem({item}: {item:Category}) {
+function FilterItem({item, slug}: {item:Category, slug: string}) {
     return (
         <>
-            <Link href={`?category=${item.slug}`} className="hover:underline">
+            <Link href={`?${slug}=${item.slug}`} className="hover:underline">
                 <span>
                     {item.name}
                 </span>
@@ -26,7 +26,7 @@ function FilterItem({item}: {item:Category}) {
     )
 }
 
-export default function FilterList({ list, title }: { list: Category[] | []; title?: string }) {
+export default function FilterList({ list, title, slug }: { list: Category[] | []; title: string, slug: string}) {
     return (
         <>
             <nav>
@@ -37,12 +37,12 @@ export default function FilterList({ list, title }: { list: Category[] | []; tit
                 ) : null}
                 <ul className="hidden md:block">
                     <Suspense fallback={null}>
-                        <FilterItemList list={list} />
+                        <FilterItemList list={list} slug={slug} />
                     </Suspense>
                 </ul>
                 <ul className="md:hidden">
                     <Suspense fallback={null}>
-                        <FilterItemDropdown list={list} />
+                        <FilterItemDropdown list={list} slug={slug} title={title} />
                     </Suspense>
                 </ul>
             </nav>

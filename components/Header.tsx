@@ -38,19 +38,25 @@ export function Header() {
                     </li>
                     <li className="py-1">
                         <Link href="/store"
-                              className="block py-2 px-3 rounded-lg text-gray-700 dark:text-white hover:text-gray-900 hover:dark:text-black hover:bg-gray-100 duration-150">
+                              className="block py-2 px-3 rounded-lg text-gray-700 dark:text-white hover:text-gray-900 hover:dark:text-black hover:bg-gray-100 duration-150"
+                              prefetch
+                        >
                             Tienda
                         </Link>
                     </li>
                     <li className="py-1">
                         <Link href="/categories"
-                              className="block py-2 px-3 rounded-lg text-gray-700 dark:text-white hover:text-gray-900 hover:dark:text-black hover:bg-gray-100 duration-150">
+                              className="block py-2 px-3 rounded-lg text-gray-700 dark:text-white hover:text-gray-900 hover:dark:text-black hover:bg-gray-100 duration-150"
+                              prefetch
+                        >
                             Categorias
                         </Link>
                     </li>
                     <li className="py-1">
                         <Link href="/brands"
-                              className="block py-2 px-3 rounded-lg text-gray-700 dark:text-white hover:text-gray-900 hover:dark:text-black hover:bg-gray-100 duration-150">
+                              className="block py-2 px-3 rounded-lg text-gray-700 dark:text-white hover:text-gray-900 hover:dark:text-black hover:bg-gray-100 duration-150"
+                              prefetch
+                        >
                             Marcas
                         </Link>
                     </li>

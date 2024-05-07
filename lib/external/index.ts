@@ -1,31 +1,15 @@
 import axios from "axios";
 import { Category, Brand } from "@/lib/types";
-
-export async function getProduct(slug: string) {
-
-    const baseUrl:string = 'https://byteboost-api.sebas.lat/products';
-
-    let product;
-
-    try {
-        product = await axios.get(`${baseUrl}?slug=${slug}`)
-    } catch (e) {
-        product = null
-    }
-
-    return product
-}
+import {apiUrl} from "@/lib/env";
 
 export async function getCategories() {
-    const URL = 'https://byteboost-api.sebas.lat/categories'
+    const URL = `${apiUrl}/categories`
     const content = await axios.get(URL)
-
     return content.data as Category[] | []
 }
 
 export async function getBrands() {
-    const URL = 'https://byteboost-api.sebas.lat/brands'
+    const URL = `${apiUrl}/brands`
     const content = await axios.get(URL)
-
     return content.data as Brand[] | []
 }

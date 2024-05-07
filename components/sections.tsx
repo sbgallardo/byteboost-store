@@ -10,14 +10,15 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import {Brand, Category} from "@/lib/types";
 import { SkeletonCards } from "@/components/skeleton";
+import { apiUrl } from "@/lib/env";
 
 const getCategories = async () => {
-    const res = await fetch('https://byteboost-api.sebas.lat/categories');
+    const res = await fetch(`${apiUrl}/categories`);
     return res.json()
 }
 
 const getBrands = async () => {
-    const res = await fetch('https://byteboost-api.sebas.lat/brands');
+    const res = await fetch(`${apiUrl}/brands`);
     return res.json()
 }
 

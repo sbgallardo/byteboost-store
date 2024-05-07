@@ -6,9 +6,10 @@ import { SkeletonProduct } from "@/components/skeleton";
 import { ProductDescription } from "@/components/product/product-description";
 import {Gallery} from "@/components/product/gallery";
 import { Suspense } from "react";
+import {apiUrl} from "@/lib/env";
 
 async function getProduct (slug: string) {
-    const res = await fetch(`https://byteboost-api.sebas.lat/products?slug=${slug}`);
+    const res = await fetch(`${apiUrl}/products?slug=${slug}`);
     return res.json()
 }
 

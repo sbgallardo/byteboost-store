@@ -3,6 +3,7 @@ import {Prod, SearchParams} from "@/lib/types";
 import Grid from "@/components/grid";
 import ProductGridItems from '@/components/layout/product-grid-items';
 import { LoadingSpinner } from "@/components/loading";
+import {apiUrl} from "@/lib/env";
 
 export function ProductList({filters}: {filters:SearchParams}) {
 
@@ -30,23 +31,22 @@ export function ProductList({filters}: {filters:SearchParams}) {
 
 const getProducts = async (filters: SearchParams) => {
     let res;
-    const url = "https://byteboost-api.sebas.lat";
 
     switch (filters === null) {
         case !filters.sort:
-            res = await fetch(`${url}/products?sort=${filters.sort}`)
+            res = await fetch(`${apiUrl}/products?sort=${filters.sort}`)
             break
         case !filters.q:
-            res = await fetch(`${url}/products?q=${filters.q}`)
+            res = await fetch(`${apiUrl}/products?q=${filters.q}`)
             break
         case !filters.brand:
-            res = await fetch(`${url}/products?brand=${filters.brand}`)
+            res = await fetch(`${apiUrl}/products?brand=${filters.brand}`)
             break
         case !filters.category:
-            res = await fetch(`${url}/products?category=${filters.category}`)
+            res = await fetch(`${apiUrl}/products?category=${filters.category}`)
             break
         default:
-            res = await fetch(`${url}/products`)
+            res = await fetch(`${apiUrl}/products`)
             break
     }
 

@@ -28,9 +28,9 @@ export default function Product({slug}: {slug: string}) {
     return (
         <>
             <CustomBreadcrumb paths={paths}/>
-            <div className="mx-auto max-w-screen-2xl px-4 mt-2">
+            <div className="mx-auto max-w-screen-2xl px-4 mt-4">
                 <div
-                    className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 lg:flex-row lg:gap-8 dark:border-neutral-800 dark:bg-black">
+                    className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 lg:flex-row lg:gap-8 dark:border-neutral-800 dark:bg-background">
                     <div className="h-full w-full basis-full lg:basis-4/6">
                         <Suspense
                             fallback={

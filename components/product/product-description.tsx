@@ -12,6 +12,7 @@ export function ProductDescription({ product }: { product: Prod }) {
                 <div className="mr-auto w-auto rounded-full bg-blue-600 p-2 text-sm text-white">
                     <Price
                         amount={product.price.toString()}
+                        discount={product.discount ? product.discount : null}
                         currencyCode="CLP"
                     />
                 </div>

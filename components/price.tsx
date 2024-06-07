@@ -4,20 +4,49 @@ const Price = ({
                    amount,
                    className,
                    currencyCode = 'USD',
+                   discount,
                    currencyCodeClassName
                }: {
     amount: string;
     className?: string;
     currencyCode: string;
+    discount?: number | null;
     currencyCodeClassName?: string;
 } & React.ComponentProps<'p'>) => (
     <p suppressHydrationWarning={true} className={className}>
-        {`${new Intl.NumberFormat(undefined, {
-            style: 'currency',
-            currency: currencyCode,
-            currencyDisplay: 'narrowSymbol'
-        }).format(parseFloat(amount))}`}
-        <span className={clsx('ml-1 inline', currencyCodeClassName)}>{`${currencyCode}`}</span>
+        {!discount ?
+        <>
+            {`${new Intl.NumberFormat(undefined, {
+                style: 'currency',
+                currency: currencyCode,
+                currencyDisplay: 'narrowSymbol'
+            }).format(parseFloat(amount))}`}
+        </>
+            :
+            <>
+                {`${new Intl.NumberFormat(undefined, {
+                    style: 'currency',
+                    currency: currencyCode,
+                    currencyDisplay: 'narrowSymbol'
+                }).format(parseFloat(amount) - parseFloat(amount) * discount / 100)}`}
+            </>
+        }
+        {discount ?
+            <span className="ml-1 text-sm text-neutral-300 dark:text-neutral-200 line-through">
+                {`${new Intl.NumberFormat(undefined, {
+                    style: 'currency',
+                    currency: currencyCode,
+                    currencyDisplay: 'narrowSymbol'
+                }).format(parseFloat(amount))}`}
+            </span>
+            : <span className={clsx('ml-1 inline', currencyCodeClassName)}>{
+                `${new Intl.NumberFormat(undefined, {
+                    style: 'currency',
+                    currency: currencyCode,
+                    currencyDisplay: 'narrowSymbol'
+                }).format(parseFloat(amount))}`} {`${currencyCode}`}
+              </span>
+        }
     </p>
 );
 

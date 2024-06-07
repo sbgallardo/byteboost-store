@@ -35,6 +35,7 @@ interface WishlistItem {
     id: string
     wishlistId: string
     productId: string
+    productName: string
     quantity: number
     productPrice: number
 }
@@ -89,7 +90,7 @@ export function TableDemo({data, total}: {data: WishlistItem[], total: number}) 
                 {data.map((wishlist) => (
                     <TableRow key={wishlist.id}>
                         <TableCell className="font-medium">{wishlist.productId}</TableCell>
-                        <TableCell>todo</TableCell>
+                        <TableCell>{wishlist.productName}</TableCell>
                         <TableCell>{wishlist.quantity}</TableCell>
                         <TableCell className="text-right">{formatPrice(wishlist.productPrice)}</TableCell>
                     </TableRow>

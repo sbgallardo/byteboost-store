@@ -72,18 +72,18 @@ export const AvatarMenu = () => {
                         </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
-                        <DropdownMenuLabel>Account of {user.nickname}</DropdownMenuLabel>
+                        <DropdownMenuLabel className="text-center">{user.nickname}</DropdownMenuLabel>
                         <DropdownMenuSeparator/>
                         <DropdownMenuGroup>
                             <Link href="/profile">
                                 <DropdownMenuItem>
-                                    <span>Profile</span>
+                                    <span>Ver Perfil</span>
                                 </DropdownMenuItem>
                             </Link>
 
                             <Link href="/api/auth/logout">
                                 <DropdownMenuItem>
-                                    Logout
+                                    Cerrar sesión
                                 </DropdownMenuItem>
                             </Link>
                         </DropdownMenuGroup>

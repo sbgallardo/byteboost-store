@@ -2,21 +2,15 @@
 
 import {
     Sheet,
-    SheetClose,
     SheetContent,
-    SheetDescription,
-    SheetFooter,
     SheetHeader,
     SheetTitle,
     SheetTrigger
 } from "@/components/ui/sheet";
-import {
-    Card,
-    CardContent
-} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { MdAddShoppingCart } from "react-icons/md";
 
 
 export default function Cart() {
@@ -62,8 +56,11 @@ export function AddToCart({id}: {id: number}) {
         <>
             <Button
                 onClick={() => {addToCart()}}
+                variant="secondary"
+                className="flex items-center justify-center w-full"
             >
-                <span>Add to cart +</span>
+                    <MdAddShoppingCart className="mr-2 w-4 h-4"/>
+                    Agregar al carrito
             </Button>
         </>
     )

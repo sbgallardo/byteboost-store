@@ -6,8 +6,7 @@ export default function Home() {
   return (
       <>
           <Header/>
-
-
+          <Homepage/>
           <Footer />
       </>
   );

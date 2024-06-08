@@ -75,12 +75,20 @@ export const AvatarMenu = () => {
                         <DropdownMenuLabel className="text-center">{user.nickname}</DropdownMenuLabel>
                         <DropdownMenuSeparator/>
                         <DropdownMenuGroup>
+                            {user.email === "admin@example.com" &&
+                                (
+                                    <Link href="/admin">
+                                        <DropdownMenuItem>
+                                            <span>Administración</span>
+                                        </DropdownMenuItem>
+                                    </Link>
+                                )
+                            }
                             <Link href="/profile">
                                 <DropdownMenuItem>
                                     <span>Ver Perfil</span>
                                 </DropdownMenuItem>
                             </Link>
-
                             <Link href="/api/auth/logout">
                                 <DropdownMenuItem>
                                     Cerrar sesión

@@ -70,12 +70,12 @@ export default function Bill({handle, token}: {handle: string, token: string}) {
                 <MdOutlineShoppingBag className="mr-2 w-7 h-7"/>
                 <h2 className="text-2xl font-semibold">Listado de productos</h2>
             </div>
-            <TableDemo data={data.wishlistItems} total={total} />
+            <ProductTable data={data.wishlistItems} total={total} />
         </div>
     )
 }
 
-export function TableDemo({data, total}: {data: WishlistItem[], total: number}) {
+export function ProductTable({data, total}: {data: WishlistItem[], total: number}) {
     return (
         <Table>
             <TableHeader>

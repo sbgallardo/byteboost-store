@@ -29,7 +29,7 @@ export function ProductList({filters}: {filters:SearchParams}) {
     )
 }
 
-const getProducts = async (filters: SearchParams) => {
+export const getProducts = async (filters: SearchParams) => {
     let res;
 
     switch (filters === null) {

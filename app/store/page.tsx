@@ -12,7 +12,7 @@ export default function Page({searchParams}:{searchParams?: { [key: string]: str
 
     const filters: SearchParams = {
         q: searchValue,
-        brand: brand,
+        brand_id: brand,
         category: category,
         sort: sort
     }

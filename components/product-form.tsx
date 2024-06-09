@@ -32,6 +32,7 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
+import Link from "next/link";
 
 async function createProduct(product:any) {
     const response = await fetch(`${apiUrl}/products`, {
@@ -49,7 +50,18 @@ async function createProduct(product:any) {
     return response.json();
 }
 
-export function CrudCard() {
+async function getCategories() {
+    const response = await fetch(`${apiUrl}/categories`);
+    return response.json()
+}
+
+async function getBrands() {
+    const response = await fetch(`${apiUrl}/brands`)
+    return response.json()
+}
+
+
+export function CrudCard({categories, brands}: {categories: any[], brands: any[]}) {
 
     const [product, setProduct] = useState({
         name: "",
@@ -119,8 +131,13 @@ export function CrudCard() {
                                 <SelectValue placeholder="Seleccione categoria" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="1">GPU</SelectItem>
-                                <SelectItem value="3">CPU</SelectItem>
+                                {
+                                    categories.map(item => {
+                                        return (
+                                            <SelectItem key={item.id} value={item.id}>{item.name}</SelectItem>
+                                        )
+                                    })
+                                }
                             </SelectContent>
                         </Select>
                     </div>
@@ -133,8 +150,13 @@ export function CrudCard() {
                                 <SelectValue placeholder="Seleccione marca" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="1">GPU</SelectItem>
-                                <SelectItem value="2">CPU</SelectItem>
+                                {
+                                    brands.map(item => {
+                                        return (
+                                            <SelectItem key={item.id} value={item.id}>{item.name}</SelectItem>
+                                        )
+                                    })
+                                }
                             </SelectContent>
                         </Select>
                     </div>
@@ -180,7 +202,11 @@ export function ProductList({products}: {products: any[]}) {
                 {products.map((item) => (
                     <TableRow key={item.invoice}>
                         <TableCell className="font-medium">{item.id}</TableCell>
-                        <TableCell>{item.name}</TableCell>
+                        <TableCell>
+                            <Link href={`/product/${item.slug}`}>
+                                {item.name}
+                            </Link>
+                        </TableCell>
                         <TableCell>{formatPrice(item.price)}</TableCell>
                         <TableCell className="text-right">{item.stock}</TableCell>
                         <TableCell className="text-right">

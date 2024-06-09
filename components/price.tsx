@@ -22,15 +22,16 @@ const Price = ({
                 currencyDisplay: 'narrowSymbol'
             }).format(parseFloat(amount))}`}
         </>
-            :
-            <>
-                {`${new Intl.NumberFormat(undefined, {
-                    style: 'currency',
-                    currency: currencyCode,
-                    currencyDisplay: 'narrowSymbol'
-                }).format(parseFloat(amount) - parseFloat(amount) * discount / 100)}`}
-            </>
+        :
+        <>
+            {`${new Intl.NumberFormat(undefined, {
+                style: 'currency',
+                currency: currencyCode,
+                currencyDisplay: 'narrowSymbol'
+            }).format(parseFloat(amount) - parseFloat(amount) * discount / 100)}`}
+        </>
         }
+
         {discount ?
             <span className="ml-1 text-sm text-neutral-300 dark:text-neutral-200 line-through">
                 {`${new Intl.NumberFormat(undefined, {
@@ -39,14 +40,9 @@ const Price = ({
                     currencyDisplay: 'narrowSymbol'
                 }).format(parseFloat(amount))}`}
             </span>
-            : <span className={clsx('ml-1 inline', currencyCodeClassName)}>{
-                `${new Intl.NumberFormat(undefined, {
-                    style: 'currency',
-                    currency: currencyCode,
-                    currencyDisplay: 'narrowSymbol'
-                }).format(parseFloat(amount))}`} {`${currencyCode}`}
-              </span>
+            : null
         }
+        <span> CLP</span>
     </p>
 );
 

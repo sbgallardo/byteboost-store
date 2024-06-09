@@ -39,7 +39,7 @@ export function WishlistTable() {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead className="w-[100px]">N&#176; Bucketlist</TableHead>
+                            <TableHead className="w-[100px]">ID</TableHead>
                             <TableHead>Nombre</TableHead>
                             <TableHead>Total</TableHead>
                         </TableRow>

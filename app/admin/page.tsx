@@ -17,9 +17,29 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { Products } from "@/app/admin/products";
+import {apiUrl} from "@/lib/env";
+import { useEffect, useState } from "react";
+
+async function getCategories() {
+    const response = await fetch(`${apiUrl}/categories`);
+    return response.json()
+}
+
+async function getBrands() {
+    const response = await fetch(`${apiUrl}/brands`)
+    return response.json()
+}
 
 export default function Admin() {
     const queryClient = new QueryClient();
+    const [categories, setCategories] = useState([])
+    const [brands, setBrands] = useState([])
+
+    useEffect(() => {
+        getCategories().then((data) => setCategories(data))
+        getBrands().then((data) => setBrands(data))
+    }, [])
+
 
     return (
         <>
@@ -51,7 +71,7 @@ export default function Admin() {
                                 </DialogDescription>
                             </DialogHeader>
                             <div>
-                                <CrudCard/>
+                                <CrudCard categories={categories} brands={brands} />
                             </div>
                         </DialogContent>
                     </Dialog>

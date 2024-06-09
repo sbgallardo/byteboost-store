@@ -16,11 +16,11 @@ function FilterItemList({ list, slug }: { list: Category[] | [], slug: string })
 function FilterItem({item, slug}: {item:Category, slug: string}) {
     return (
         <>
-            <Link href={`?${slug}=${item.slug}`} className="hover:underline">
+            <a href={`?${slug}=${item.slug}`} className="hover:underline">
                 <span>
                     {item.name}
                 </span>
-            </Link>
+            </a>
             <br/>
         </>
     )

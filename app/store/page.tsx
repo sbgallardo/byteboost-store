@@ -21,22 +21,6 @@ export default function Page({searchParams}:{searchParams?: { [key: string]: str
 
     return (
         <>
-            {anyFilter
-                ?
-                <div
-                    className="font-semibold"
-                >
-                    Filters enabled
-                </div>
-                :
-                null
-            }
-            <ul>
-                <li>{searchValue}</li>
-                <li>{category}</li>
-                <li>{brand}</li>
-                <li>{sort}</li>
-            </ul>
             <QueryClientProvider client={queryClient}>
                 <ProductList filters={filters}/>
             </QueryClientProvider>

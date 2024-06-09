@@ -15,6 +15,9 @@ import { FaApplePay } from "react-icons/fa";
 import { FaGooglePay } from "react-icons/fa";
 import { MdCreditCard } from "react-icons/md";
 import { formatPrice } from "@/utils/pricing";
+import { SiRoblox } from "react-icons/si";
+import { SiRiotgames } from "react-icons/si";
+import { GiCamel } from "react-icons/gi";
 
 export default function Pay({children, total}: {children: React.ReactNode, total: number}) {
     return (
@@ -33,6 +36,18 @@ export default function Pay({children, total}: {children: React.ReactNode, total
                         <p className="font-semibold">{formatPrice(total)} CLP</p>
                     </div>
                     <div className="flex grid gap-2 my-2">
+                        <Button variant="outline">
+                            <SiRiotgames className="mr-2"/>
+                            Riot Points
+                        </Button>
+                        <Button variant="outline">
+                            <SiRoblox className="mr-2"/>
+                            Robux
+                        </Button>
+                        <Button variant="outline">
+                            <GiCamel className="mr-2"/>
+                            Camellos (Solo para Dubai)
+                        </Button>
                         <Button variant="outline">
                             <FaCcPaypal className="mr-2"/>
                             Paypal

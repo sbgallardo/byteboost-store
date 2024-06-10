@@ -52,11 +52,9 @@ export function Invoice({id}: {id: string}) {
                                 <span>{id}</span>
                             </li>
                         </ul>
-
                         <ul className="grid gap-3">
-
                             <li className="flex items-center justify-between font-semibold">
-                                <span className="text-muted-foreground">Total</span>
+                                <span className="text-muted-foreground">Presupuesto</span>
                                 <span>{formatPrice(products.budget)} CLP</span>
                             </li>
                         </ul>

@@ -75,7 +75,7 @@ export default function Bill({handle, token}: {handle: string, token: string}) {
     )
 }
 
-export function ProductTable({data, total}: {data: WishlistItem[], total: number}) {
+export function ProductTable({data, total}: {data: WishlistItem[], total?: number}) {
     return (
         <Table>
             <TableHeader>
@@ -96,17 +96,19 @@ export function ProductTable({data, total}: {data: WishlistItem[], total: number
                     </TableRow>
                 ))}
             </TableBody>
-            <TableFooter>
-                <TableRow>
-                    <TableCell colSpan={3}>Total</TableCell>
-                    <TableCell className="text-right">{formatPrice(total)} CLP</TableCell>
-                </TableRow>
-            </TableFooter>
+            {total && (
+                <TableFooter>
+                    <TableRow>
+                        <TableCell colSpan={3}>Total</TableCell>
+                        <TableCell className="text-right">{formatPrice(total)} CLP</TableCell>
+                    </TableRow>
+                </TableFooter>
+            )}
         </Table>
     )
 }
 
-function BillDetails({data, total}: {data: Wishlist, total: number}) {
+export function BillDetails({data, total}: {data: Wishlist, total: number}) {
     const statusMap = new Map([
         ["active", "Activa"],
         ["paid", "Pagada"],

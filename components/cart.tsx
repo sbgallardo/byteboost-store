@@ -11,6 +11,7 @@ import {Button} from "@/components/ui/button";
 import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
+import Pay from "@/components/pay";
 
 
 export default function Cart() {
@@ -54,14 +55,17 @@ export function AddToCart({id}: {id: number}) {
 
     return (
         <>
-            <Button
-                onClick={() => {addToCart()}}
-                variant="secondary"
-                className="flex items-center justify-center w-full"
-            >
+            <Pay>
+                <Button
+                    onClick={() => {addToCart()}}
+                    variant="secondary"
+                    className="flex items-center justify-center w-full"
+                >
                     <MdAddShoppingCart className="mr-2 w-4 h-4"/>
+
                     Agregar al carrito
-            </Button>
+                </Button>
+            </Pay>
         </>
     )
 }

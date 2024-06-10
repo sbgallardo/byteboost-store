@@ -19,7 +19,7 @@ import { SiRoblox } from "react-icons/si";
 import { SiRiotgames } from "react-icons/si";
 import { GiCamel } from "react-icons/gi";
 
-export default function Pay({children, total}: {children: React.ReactNode, total: number}) {
+export default function Pay({children, total}: {children: React.ReactNode, total?: number}) {
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -31,10 +31,12 @@ export default function Pay({children, total}: {children: React.ReactNode, total
                     <DialogDescription>Elige tu metodo de pago</DialogDescription>
                 </DialogHeader>
                 <div>
+                    {total && (
                     <div className="flex items-center justify-between">
                         <h3 className="text-muted-foreground">Total a pagar</h3>
                         <p className="font-semibold">{formatPrice(total)} CLP</p>
                     </div>
+                        )}
                     <div className="flex grid gap-2 my-2">
                         <Button variant="outline">
                             <SiRiotgames className="mr-2"/>

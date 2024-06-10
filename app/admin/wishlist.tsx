@@ -2,7 +2,6 @@
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
@@ -19,16 +18,59 @@ import {
 import { Button } from "@/components/ui/button"
 import { useQuery } from "@tanstack/react-query";
 import { formatPrice } from "@/utils/pricing";
+import { apiUrl } from "@/lib/env";
+import { toast } from "sonner"
+import { useState } from "react";
 
-async function fetchWishlist() {
-    const response = await fetch("https://run.mocky.io/v3/a0fc6fae-3d70-4d6d-8ae3-898d50167369")
+export async function fetchWishlist() {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_3PARTY}`)
     return await response.json()
 }
 
+export async function sendConfirmation(body: any, reject: boolean) {
+    if (reject === true) {
+        await fetch(`${apiUrl}/confirm-wishlist`, { method: "DELETE" })
+    } else {
+        await fetch(`${apiUrl}/confirm-wishlist`, { method: "POST" , body: JSON.stringify(body)})
+    }
+}
 
 export function WishlistTable() {
-
     const { status, data } = useQuery({queryKey: ["wishlist"], queryFn: fetchWishlist})
+    const [disabled, setDisabled] = useState(false)
+
+    const handleAccept = (id: number): void => {
+        setDisabled(true)
+        toast("Se envio el Email", {
+            description: "Se envio el email de confirmación.",
+            action: {
+                label: "Ok",
+                onClick: () => console.log(""),
+            },
+        })
+        sendConfirmation({
+            details: {
+                "id": id
+            },
+        }, false).then(
+            r => console.log(r)
+        )
+    }
+
+    const handleReject = (): void => {
+
+        setDisabled(true)
+        toast("Se envio el Email", {
+            description: "Se envio el email de rechazo.",
+            action: {
+                label: "Ok",
+                onClick: () => console.log(""),
+            },
+        })
+
+        sendConfirmation({}, true).then(
+            r => console.log(r))
+    }
 
     if (status === "pending") return <div>Loading...</div>
     if (status === "error") return <div>Error</div>
@@ -50,9 +92,18 @@ export function WishlistTable() {
                                 <TableRow key={item.wishlist_id}>
                                     <TableCell className="font-medium">{item.wishlist_id}</TableCell>
                                     <TableCell>{item.wishlist_name}</TableCell>
-                                    <TableCell>{formatPrice(item.buget)}</TableCell>
+                                    <TableCell>{formatPrice(item.budget)}</TableCell>
                                     <TableCell className="text-right">
-                                        <Dialog>
+                                        <Dialog
+                                            onOpenChange={
+                                                (isOpen) => {
+                                                    if (isOpen) {
+                                                        setDisabled(false)
+                                                    } else {
+                                                        setDisabled(true)
+                                                    }}
+                                            }
+                                        >
                                             <DialogTrigger asChild>
                                                 <Button variant="outline">Ver detalle</Button>
                                             </DialogTrigger>
@@ -70,7 +121,7 @@ export function WishlistTable() {
                                                                 </TableRow>
                                                             </TableHeader>
                                                             <TableBody>
-                                                                {item.products.map((item: any) => (
+                                                                {item.product.map((item: any) => (
                                                                     <TableRow key={item.product_id}>
                                                                         <TableCell>{item.product_id}</TableCell>
                                                                         <TableCell>{item.product_name}</TableCell>
@@ -81,8 +132,20 @@ export function WishlistTable() {
                                                             </TableBody>
                                                         </Table>
                                                         <div className="flex justify-end mt-4">
-                                                            <Button variant="destructive" className="mr-2">Rechazar</Button>
-                                                            <Button>Confirmar</Button>
+                                                            <Button
+                                                                variant="destructive"
+                                                                className="mr-2"
+                                                                onClick={handleReject}
+                                                                disabled={disabled}
+                                                            >
+                                                                Rechazar
+                                                            </Button>
+                                                            <Button
+                                                                onClick={ () => {handleAccept(item._id)}}
+                                                                disabled={disabled}
+                                                            >
+                                                                Confirmar
+                                                            </Button>
                                                         </div>
                                                     </DialogDescription>
                                                 </DialogHeader>
@@ -94,7 +157,6 @@ export function WishlistTable() {
                         })}
                     </TableBody>
                 </Table>
-
             </div>
         </div>
     )

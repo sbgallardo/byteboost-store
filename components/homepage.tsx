@@ -10,6 +10,7 @@ import {
     FaGamepad
 } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Homepage() {
     return (
@@ -27,7 +28,7 @@ export default function Homepage() {
                 </div>
 
                 <div className="container mx-auto flex flex-wrap justify-center">
-                    <a href="#" className="flex bg-slate-50 rounded-lg shadow-lg lg:w-1/2 lg:m-2 lg:p-3 m-2 p-2 max-w-[540px]">
+                    <a href="/store?category=gpus" className="flex bg-slate-50 rounded-lg shadow-lg lg:w-1/2 lg:m-2 lg:p-3 m-2 p-2 max-w-[540px]">
                         <div className="flex flex-col rounded-xl p-2 pl-2">
                             <h5 className="md:text-xl sm:text-md font-bold tracking-tight text-black pb-2 hover:text-purple-500 hover:ease-out duration-200">Computadores Gamers</h5>
                             <p className="md:text-lg sm:text-sm text-gray-700">Juega al máximo rendimiento con nuestra alta gama de computadoras gamer</p>
@@ -39,7 +40,7 @@ export default function Homepage() {
                             </div>
                         </div>
                     </a>
-                    <a href="#" className="flex bg-slate-50 rounded-lg shadow-lg lg:w-1/2 lg:m-3 lg:p-3 m-2 p-2 max-w-[540px]">
+                    <a href="/store?category=consolas" className="flex bg-slate-50 rounded-lg shadow-lg lg:w-1/2 lg:m-3 lg:p-3 m-2 p-2 max-w-[540px]">
                         <div className="flex flex-col rounded-xl p-2 pl-2">
                             <h5 className="md:text-xl sm:text-md font-bold tracking-tight text-black pb-2 hover:text-purple-500 hover:ease-out duration-200">Consolas Gamers</h5>
                             <p className="md:text-lg sm:text-sm text-gray-700">Juega una experiencia única con nuestra alta gama de consolas gamer</p>
@@ -51,7 +52,7 @@ export default function Homepage() {
                             </div>
                         </div>
                     </a>
-                    <a href="#" className="flex bg-slate-50 rounded-lg shadow-lg lg:w-1/2 lg:m-3 lg:p-3 m-2 p-2 max-w-[540px]">
+                    <a href="/store?category=gpus" className="flex bg-slate-50 rounded-lg shadow-lg lg:w-1/2 lg:m-3 lg:p-3 m-2 p-2 max-w-[540px]">
                         <div className="flex flex-col rounded-xl p-2 pl-2">
                             <h5 className="md:text-xl sm:text-md font-bold tracking-tight text-black pb-2 hover:text-purple-500 hover:ease-out duration-200">Tarjetas Gráficas</h5>
                             <p className="md:text-lg sm:text-sm text-gray-700">Dale un vistazo a la gran variedad de tarjetas gráficas que poseemos.</p>
@@ -63,7 +64,7 @@ export default function Homepage() {
                             </div>
                         </div>
                     </a>
-                    <a href="#" className="flex bg-slate-50 rounded-lg shadow-lg lg:w-1/2 lg:m-3 lg:p-3 m-2 p-2 max-w-[540px]">
+                    <a href="/store?category=robotica" className="flex bg-slate-50 rounded-lg shadow-lg lg:w-1/2 lg:m-3 lg:p-3 m-2 p-2 max-w-[540px]">
                         <div className="flex flex-col rounded-xl p-2 pl-2">
                             <h5 className="md:text-xl sm:text-md font-bold tracking-tight text-black pb-2 hover:text-purple-500 hover:ease-out duration-200">Róbotica</h5>
                             <p className="md:text-lg sm:text-sm text-gray-700">¿Buscas componentes de robotica?, ¡aquí tenemos todo!</p>

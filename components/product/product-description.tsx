@@ -3,6 +3,7 @@ import Price from '@/components/price';
 import { Prod } from '@/lib/types';
 import { Suspense } from 'react';
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export function ProductDescription({ product }: { product: Prod }) {
     return (
@@ -27,7 +28,11 @@ export function ProductDescription({ product }: { product: Prod }) {
             </p>
 
             <Suspense fallback={null}>
-                <AddToCart id={product.id} />
+                {product.stock === 0 ?
+                    <Button variant="secondary" className="cursor-not-allowed w-full">Sin Stock</Button>
+                    :
+                    <AddToCart id={product.id} />
+                }
             </Suspense>
         </>
     );
